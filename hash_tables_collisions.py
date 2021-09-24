@@ -24,14 +24,6 @@ class HashTable:
             break
          index += 1
 
-      # index = 0
-      # for element in self.arr[h]:
-      #    if element[0] == key:
-      #       self.arr[h][index] = (key, value)
-      #       found = True
-      #       break
-      #    index += 1
-
       if not found:
          self.arr[h].append((key, value))
 
