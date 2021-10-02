@@ -13,6 +13,7 @@ list_stack.append('shark')
 
 # If you simply want to know which element is on top of the stack
 # print(list_stack[-1])
+# LIFO -> Last In First Out
 
 # ------ However using lists as stacks in  Python is not ideal, so instead, is preferable to use deque -------
 from collections import deque

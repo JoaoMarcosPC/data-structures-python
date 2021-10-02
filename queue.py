@@ -1,3 +1,5 @@
+# FIFO -> Fist In First Out
+
 from collections import deque
 
 class Queue:
