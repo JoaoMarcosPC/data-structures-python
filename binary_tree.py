@@ -118,6 +118,26 @@ class BinarySearchTree:
          self.left = self.left.delete_left(max_value)
       
       return self
+   
+   def tree_size(self):
+      if self.right == None and self.left == None:
+         return 1
+      elif self.right == None:
+         return 1 + self.left.tree_size()
+      elif self.left == None:
+         return 1 + self.right.tree_size()
+
+      return 1 + self.left.tree_size() + self.right.tree_size()
+
+   def tree_height(self):
+      if self.right == None and self.left == None:
+         return 1
+      elif self.right == None:
+         return 1 + self.left.tree_height()
+      elif self.left == None:
+         return 1 + self.right.tree_height()
+
+      return 1 + max(self.left.tree_height(), self.right.tree_height())
 
 def build_tree(elements):
    root = BinarySearchTree(elements[0])
@@ -133,14 +153,16 @@ if __name__ == '__main__':
    numbers = [17, 4, 1, 20, 9, 23, 18, 34, 18, 4]
    numbers_tree = build_tree(numbers)
    print("Original tree:", numbers_tree.in_order_traversal())
-   numbers_tree.delete_right(9)
-   numbers_tree.delete_left(20)
-   print(numbers_tree.in_order_traversal())
-   print(numbers_tree.search(20))
-   print(numbers_tree.search(8))
+   print(numbers_tree.tree_size())
+   print(numbers_tree.tree_height())
+   # numbers_tree.delete_right(9)
+   # numbers_tree.delete_left(20)
+   # print(numbers_tree.in_order_traversal())
+   # print(numbers_tree.search(20))
+   # print(numbers_tree.search(8))
 
-   countries = ["India", "Pakistan", "Germany", "USA", "China", "Australia", "India", "UK", "USA"]
-   country_tree = build_tree(countries)
-   print(country_tree.in_order_traversal())
-   print("UK is on the list ?", country_tree.search("UK"))
-   print("Sweden is on the list ?", country_tree.search("Sweden"))
+   # countries = ["India", "Pakistan", "Germany", "USA", "China", "Australia", "India", "UK", "USA"]
+   # country_tree = build_tree(countries)
+   # print(country_tree.in_order_traversal())
+   # print("UK is on the list ?", country_tree.search("UK"))
+   # print("Sweden is on the list ?", country_tree.search("Sweden"))
